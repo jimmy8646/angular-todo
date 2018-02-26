@@ -5,10 +5,8 @@
 </div>
 
 <ul id="myUL">
-   <li class="list-group-item" *ngFor="let item of toDoListArray">
-      <div [class.text-success]="item.isChecked" (click)="alterCheck(item.$key,item.isChecked)">
+   <li class="list-group-item" *ngFor="let item of toDoListArray" [ngClass]="item.isChecked?'checked':''" (click)="alterCheck(item.$key,item.isChecked)">
           {{item.title}}
-      </div>
       <span class="close" (click)="onDelete(item.$key)">×</span>
    </li>
 </ul>
