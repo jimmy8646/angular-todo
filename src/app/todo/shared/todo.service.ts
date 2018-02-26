@@ -18,7 +18,7 @@ export class TodoService {
     });
   }
 
-  checTitleStatus($key: string, flag: boolean) {
+  checkTitleStatus($key: string, flag: boolean) {
     this.toDoList.update($key, { isChecked: flag });
   }
 

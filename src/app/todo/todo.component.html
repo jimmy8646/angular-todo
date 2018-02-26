@@ -1,6 +1,14 @@
-<div class="input-group">
-  <input type="text" class="form-control" #itemTitle>
-  <div class="input-group-addon hover-cursor" (click)="onAdd(itemTitle)">
-    add
-  </div>
+<div id="myDIV" class="header">
+  <h2 style="margin:5px">My To Do List</h2>
+  <input type="text" id="myInput" placeholder="Title..." #itemTitle>
+  <span onclick="newElement()" class="addBtn" (click)="onAdd(itemTitle)">Add</span>
 </div>
+
+<ul id="myUL">
+   <li class="list-group-item" *ngFor="let item of toDoListArray">
+      <div [class.text-success]="item.isChecked" (click)="alterCheck(item.$key,item.isChecked)">
+          {{item.title}}
+      </div>
+      <span class="close" (click)="onDelete(item.$key)">×</span>
+   </li>
+</ul>
